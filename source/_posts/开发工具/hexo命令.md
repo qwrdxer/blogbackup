@@ -111,6 +111,8 @@ hexo clean && hexo generate && hexo s 运行查看
 
 
 
+备份: hexo backup
+
 
 
 

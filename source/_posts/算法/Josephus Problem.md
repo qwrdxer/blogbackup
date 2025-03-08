@@ -1,8 +1,11 @@
 ---
-title:JosephusProblem
-date:2024-01-1711:49:36
+title: Josephus Problem
+
 categories:
+- 算法
 tags:
+- Josephus
+date: 2024-01-17 11:49:36
 ---
 
 # 问题描述:
