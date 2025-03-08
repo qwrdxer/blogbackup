@@ -1,0 +1,13 @@
+{
+  "name": "hexo-theme-clean-dark",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "hexo": "^3.0.0",
+    "hexo-generator-feed": "*",
+    "hexo-generator-sitemap": "^1.2.0",
+    "hexo-renderer-ejs": "*",
+    "hexo-renderer-marked": "*",
+    "hexo-renderer-stylus": "^1.1.0"
+  }
+}
