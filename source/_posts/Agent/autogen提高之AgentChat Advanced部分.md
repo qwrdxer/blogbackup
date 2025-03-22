@@ -818,6 +818,63 @@ JSON格式输出 `model_dump_json()`
 
 
 
+
+
+### 总结
+
+
+
+- Autogen是一款Agent框架,作者后续将其进一步封装，有了agentchat框架
+
+- 有两个重要的库 autogen_agentchat 和 autogen_ext
+	- autogen_agentchat实现了auotochat
+	- autogen_ext 拓展库，可以由社区共同维护
+
+**Client**
+Agent需要LLM的支持, 我们将其称为client,client为Agent提供底层的模型, 可以使用
+`autogen_ext.models.openai`  的 `OpenAIChatCompletionClient` 来使用openai的模型,还支持ollama ,claude等模型作为client
+
+![image-20250320151744666](autogen%E6%8F%90%E9%AB%98%E4%B9%8BAgentChat%20Advanced%E9%83%A8%E5%88%86/image-20250320151744666.png)
+
+
+
+**Agent**
+
+- agentchat 自带的Agent有 "BaseChatAgent","AssistantAgent","CodeExecutorAgent","SocietyOfMindAgent","UserProxyAgent",
+- 拓展中的Agent 有 file_surfer . video_surfer . web_surfer
+- 创建一个 Agent 需要传入 client作为底层模型, name作为Agent的名字，可选的参数有 Tool, systemMessage ...
+- Agent有三部分消息: 输入(Input or Context) , 内部消息(Event) , 输出(Response)
+- 如果调用了工具，默认情况下,Agent将返回工具调用的结果作为最终响应,可以通过设置`reflect_on_tool_use` 让Agent进行进一步处理
+- autogen是一个多agent框架，每一个Agent每次只处理一个Message
+
+![image-20250320151801883](autogen%E6%8F%90%E9%AB%98%E4%B9%8BAgentChat%20Advanced%E9%83%A8%E5%88%86/image-20250320151801883.png)
+
+
+
+
+ **Message**
+- 总体来说消息可以分为两类 :Agent之间的消息 与 Agent内部的消息
+- Agent之间的消息为多种ChatMessage, 支持多模态的消息 TextMessage | MultiModalMessage | StopMessage | ToolCallSummaryMessage | HandoffMessage
+- Agent内部消息称为AgentEvent:     ToolCallRequestEvent  | ToolCallExecutionEvent    | MemoryQueryEvent    | UserInputRequestedEvent    | ModelClientStreamingChunkEvent    | ThoughtEvent,
+- AMessage作为Agent沟通交流的载体
+
+**Team**
+- Team的类型有，"BaseGroupChat","RoundRobinGroupChat","SelectorGroupChat","Swarm","MagenticOneGroupChat"
+- 每一种Team类型代表一种多智能体协作方式，RoundRobinGroupChat 是Agent按照顺序进行消息处理，SelectorGroup顾名思义有一个主Agent用于决定哪个，Swarms类型的Agent可以自主决定下一个任务执行人。
+
+
+
+**Terminiation**
+- 团队中的Agent有决定下一个是谁的方式，而停止任务协作需要我们外部进行干预
+- 每当一个Agent给出Response后, 调用终止条件对自上一次终止以来的消息进行检查，若匹配到终止条件,则终止本次运行。
+- 终止条件有很多种、Token数量、消息数量...
+- 终止条件可以自定义检查的逻辑
+
+**Humain in the Loop**
+- 用户可以参与到协作中，可以在团队中创建一个UserProxyAgent在运行中参与，也可以在团队运行一次终止后参与。
+
+
+
 ---
 
 文章参考:

@@ -60,7 +60,7 @@ asyncio.run(main())
 ```
 
 #### 生态系统
-![[Pasted image 20250306160505.png]]
+![image-20250319110642675](autogen%E5%85%A5%E9%97%A8%E4%B9%8Bagentchat/image-20250319110642675.png)
 
 - Core API 实现了消息传递、事件驱动型Agent和本地/分布式 runtime
 - AgentChat 实现了一个更简单的快速原型设计

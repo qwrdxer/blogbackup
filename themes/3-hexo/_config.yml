@@ -43,7 +43,7 @@ category:
       - Python
     - 杂项
   width:
-    lg: 170 # 1468px<屏幕宽度 左侧分类宽度
+    lg: 300 # 1468px<屏幕宽度 左侧分类宽度
     md: 150 # 1024px<屏幕宽度<=1468px 左侧分类宽度
     sm: 150 # 426px<屏幕宽度<=1024px 左侧分类宽度（ipad）
 # 多级分类说明：
@@ -57,9 +57,9 @@ shortcutKey: true
 
 # 左下角自定义菜单
 menu:
-  about:  # '关于' 按钮
+  about: # '关于' 按钮
     on: true # 是否显示
-    url: /about  # 跳转链接
+    url: /about # 跳转链接
     type: 1 # 跳转类型 1：站内异步跳转 2：当前页面跳转 3：打开新的tab页
   friend: # '友链' 按钮
     on: true # 是否展示
@@ -67,15 +67,15 @@ menu:
     相册:
       on: false
       url: /photo
-      type: 1  # 跳转类型 1：站内异步跳转
+      type: 1 # 跳转类型 1：站内异步跳转
     叶落阁:
       on: false
       url: http://yelog.org/
-      type: 2  # 跳转类型 2：当前页面跳转
+      type: 2 # 跳转类型 2：当前页面跳转
     github:
       on: false
       url: https://github.com/qwrdxer
-      type: 3  # 跳转类型 3：打开新的tab页
+      type: 3 # 跳转类型 3：打开新的tab页
 
 # 文末声明
 article_txt: 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1944270374@qq.com
@@ -90,7 +90,6 @@ miit:
   info: 京ICP证030173号
   url: http://beian.miit.gov.cn/ # 默认链接为 http://beian.miit.gov.cn/
 
-
 reward: false
 # true 开启打赏功能
 
@@ -103,14 +102,12 @@ searchAll: true
 #   path: search.xml
 #   field: post
 
-
 copyright: false
 # Copyright info. of post | 文末版权信息
 
 word_count: true
 # true 开启字数统计
 # 开启此功能需要安装插件 ：在 hexo根目录 执行npm i hexo-wordcount --save
-
 
 # 不蒜子网站计数设置
 # http://ibruce.info/2015/04/04/busuanzi/
@@ -122,15 +119,15 @@ visit_counter:
 ##########自定义样式设置##############
 # Table of contents | 文章目录
 toc:
-  max_depth: 4  # 1 - 6 (h1-h6) 目录最大级数
+  max_depth: 4 # 1 - 6 (h1-h6) 目录最大级数
 
 #文章列表 鼠标移上去的样式, 为空时使用默认效果
 article_list:
-  title: '#383636' # 文章列表标题颜色
-  datetime: '#5e5e5f' # 文章发布日期颜色
+  title: "#383636" # 文章列表标题颜色
+  datetime: "#5e5e5f" # 文章发布日期颜色
   hover:
-    background: '#e2e0e0'  # 背景色:提供几种：'#c1bfc1'  '#fbf4a8'
-    color:     # 文字颜色 提供几种：'#ffffff'
+    background: "#e2e0e0" # 背景色:提供几种：'#c1bfc1'  '#fbf4a8'
+    color: # 文字颜色 提供几种：'#ffffff'
 # 注意：由于颜色如果包含#，使用单引号 ' 引起来
 
 # 文章列表背景图
@@ -208,7 +205,7 @@ mermaid:
   cdn: //cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js
   #cdn: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.3.1/mermaid.min.js
   options: # 更多配置信息可以参考 https://mermaidjs.github.io/#/mermaidAPI
-    theme: 'default'
+    theme: "default"
     startOnLoad: true
     flowchart:
       useMaxWidth: false
@@ -223,8 +220,8 @@ friends:
 ##########评论设置#############
 comment:
   on: false
-  type: gitalk  # 评论系统：gitalk、disqus、gitment、utteranc、livere,注意：使用时，在下方对应位置进行配置
-  comment_count: true  # 文章标题下方显示评论数 目前仅支持 gitalk 和 disqus
+  type: gitalk # 评论系统：gitalk、disqus、gitment、utteranc、livere,注意：使用时，在下方对应位置进行配置
+  comment_count: true # 文章标题下方显示评论数 目前仅支持 gitalk 和 disqus
   ## 使用说明 https://yelog.org//2020/05/23/3-hexo-comment/
 # 各评论系统配置 ↓↓
 
@@ -232,7 +229,6 @@ disqus:
   shortname:
   # disqus评论系统， 2016年9月被GFW认证，大陆不能使用。
   # 获取shortname：https://help.disqus.com/customer/en/portal/articles/466208-what-s-a-shortname-
-
 
 gitalk:
   githubID: yelog
@@ -254,7 +250,6 @@ gitalk:
 # language: 语言：支持：en / zh-CN / zh-TW 三种
 # perPage: 每次加载的数据大小，默认10，最大100
 
-
 gitment:
   owner: yelog
   repo: yelog.github.io
@@ -271,9 +266,9 @@ livere:
 
 utteranc:
   repo: xxx/xxx.github.io # 承载评论的仓库，填上自己新建的仓库
-  issue_term: pathname    # Issue 与 博客文章 之间映射关系
-  label: utteranc         # 创建的 Issue 添加的标签
-  theme: github-light     # 主题，可选主题请查看官方文档 https://utteranc.es/#heading-theme
+  issue_term: pathname # Issue 与 博客文章 之间映射关系
+  label: utteranc # 创建的 Issue 添加的标签
+  theme: github-light # 主题，可选主题请查看官方文档 https://utteranc.es/#heading-theme
 # 官方文档 https://utteranc.es/
 # 使用说明 https://yelog.org//2020/05/23/3-hexo-comment/
 
