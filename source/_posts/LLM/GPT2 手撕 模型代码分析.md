@@ -166,7 +166,7 @@ class ScaledDotProductAttention(nn.Module):
         self.Wq=nn.Linear(head_dim,head_dim,bias=False)
         self.Wk=nn.Linear(head_dim,head_dim,bias=False)
         self.Wv=nn.Linear(head_dim,head_dim,bias=False)
-
+		self.context_length=context_length
         # apply mask
         self.register_buffer('mask',torch.tril(torch.ones(context_length,context_length)))
         self.dropout_layer = nn.Dropout(self.dropout)
@@ -269,7 +269,7 @@ class GPT2Model(nn.Module):
         self.context_length=context_length
         self.token_embedding=nn.Embedding(max_token_value,d_model)
         self.transformer_block=nn.Sequential(*([TransformerBlock(d_model=d_model,num_heads=num_heads,context_length=context_length) for _ in range(num_blocks)]+[nn.LayerNorm(self.d_model)]))
-        language_model_out_linear_layer = nn.Linear(in_features=self.d_model, out_features=max_token_value)
+        self.language_model_out_linear_layer = nn.Linear(in_features=self.d_model, out_features=max_token_value)
         
     def forward(self,idx,targets=None):
         B,T=idx.shape
