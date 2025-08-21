@@ -38,8 +38,19 @@ tail -n 10 data.txt
 	"舞鹤草属 \n 舞鹤草属（学名：""Maianthemum""）是百合科下的一个属，为多年生、矮小草本植物。该属共有4种，分布于北温带。 \n 最新资料把该属列为天门冬科植物"
 	"牛筋藤属 \n 牛筋藤属（学名：""Trophis""，异名""Malaisia""）是桑科下的一个属，为藤本植物。该属仅有牛筋藤（""Trophi scandens""）一种，分布于东南亚和大洋洲。"
 
+**数据集预处理**
+
+```python
+dataset = load_dataset('text', data_files={'train_file': "./data.txt"}, cache_dir='./cache/')
+def batch_iterator(batch_size=10000):
+    for i in range(0, len(dataset['train_file']), batch_size):
+        yield dataset['train_file'][i: i + batch_size]["text"]
+```
+
+
 
 **导入对应的包**
+
 ```python
 import random
 import json
